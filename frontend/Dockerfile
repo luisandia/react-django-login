@@ -9,3 +9,4 @@ FROM nginx:1.17
 EXPOSE 3000
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /frontend/build /usr/share/nginx/html
+RUN chmod 775 -R /usr/share/nginx/html

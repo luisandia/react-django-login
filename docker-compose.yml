@@ -4,7 +4,7 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     volumes:
       - ./backend:/backend
     ports:
@@ -24,9 +24,9 @@ services:
   nginx:
     restart: always
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       context: ./nginx
     ports:
-      - '3050:80'
+      - '3050:3050'
     depends_on:
       - frontend
