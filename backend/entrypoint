@@ -1,0 +1,2 @@
+echo 'migrate'
+python leadmanager/manage.py migrate
