@@ -17,11 +17,19 @@ export class Form extends Component {
     const { name, email, message } = this.state;
     const lead = { name, email, message };
     this.props.addLead(lead);
-    this.setState({
-      name: "",
-      email: "",
-      message: ""
-    })
+  }
+
+  componentDidUpdate(PrevProps) {
+    const { message } = this.props;
+    if (message !== PrevProps.message) {
+      if (message.addLead) {
+        this.setState({
+          name: "",
+          email: "",
+          message: ""
+        })
+      }
+    }
   }
 
   render() {
@@ -64,4 +72,9 @@ export class Form extends Component {
   }
 }
 
-export default connect(null, { addLead })(Form)
+const mapStateToProps = (state) => ({
+  message: state.messages
+})
+
+
+export default connect(mapStateToProps, { addLead })(Form)

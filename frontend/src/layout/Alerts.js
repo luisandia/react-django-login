@@ -12,11 +12,16 @@ class Alerts extends Component {
       if (error.msg.name) alert.error(`Name ${error.msg.name}`)
       if (error.msg.email) alert.error(`email ${error.msg.email}`)
       if (error.msg.message) alert.error(`message ${error.msg.message}`)
+      if (error.msg.non_field_errors)
+        alert.error(error.msg.non_field_errors.join());
+      if (error.msg.username) alert.error(error.msg.username.join());
     }
 
     if (message !== PrevProps.message) {
       if (message.deleteLead) alert.success(message.deleteLead);
       if (message.addLead) alert.success(message.addLead);
+      if (message.passwordNotMatch) alert.error(message.passwordNotMatch);
+
     }
     if (detail !== PrevProps.detail) {
       alert.error(`Name ${error.msg.detail}`)

@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import leadsReducer from './reducers/leadsReducer';
 import errorsReducer from './reducers/errorsReducer';
 import messagesReducer from './reducers/messagesReducer';
+import authReducer from './reducers/authReducer';
 
 const middleware = [thunk];
 const initialState = {};
@@ -11,7 +12,8 @@ const initialState = {};
 const reducers = combineReducers({
   leads: leadsReducer,
   errors: errorsReducer,
-  messages:messagesReducer
+  messages:messagesReducer,
+  auth:authReducer
 });
 
 const store = createStore(reducers, initialState,
