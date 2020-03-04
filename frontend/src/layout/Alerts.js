@@ -7,7 +7,7 @@ class Alerts extends Component {
 
   componentDidUpdate(PrevProps) {
 
-    const { error, alert, message } = this.props;
+    const { error, alert, message, detail } = this.props;
     if (error !== PrevProps.error) {
       if (error.msg.name) alert.error(`Name ${error.msg.name}`)
       if (error.msg.email) alert.error(`email ${error.msg.email}`)
@@ -17,6 +17,9 @@ class Alerts extends Component {
     if (message !== PrevProps.message) {
       if (message.deleteLead) alert.success(message.deleteLead);
       if (message.addLead) alert.success(message.addLead);
+    }
+    if (detail !== PrevProps.detail) {
+      alert.error(`Name ${error.msg.detail}`)
     }
   }
   render() {

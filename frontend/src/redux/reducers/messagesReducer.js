@@ -1,4 +1,4 @@
-import { GET_MESSAGES, CREATE_MESSAGE } from "../types"
+import { CREATE_MESSAGE } from "../types"
 
 const initialState = {
   msg: "",
@@ -6,9 +6,8 @@ const initialState = {
 }
 
 export default (state = initialState, { type, payload }) => {
+  console.log(payload)
   switch (type) {
-    case GET_MESSAGES:
-      return payload;
     case CREATE_MESSAGE:
       return { ...payload };
     default:
